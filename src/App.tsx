@@ -7,8 +7,8 @@ import Accordion from "./00-components/Accordion";
 function App() {
   return (
     <div className="App">
-      <Rating/>
-      <Accordion/>
+      <Rating value={4}/>
+      <Accordion title={"Menu"} body={[1,4,5,6]} />
     </div>
   );
 }

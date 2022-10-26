@@ -1,13 +1,38 @@
 import React from 'react';
-
-function Accordion() {
+export type AccordionBodyType={
+    body:Array<number>
+}
+export type AccordionTitleType={
+    title:string,
+}
+export type AccordionType={
+    body:Array<number>,
+    title:string,
+}
+function Accordion(props:AccordionType) {
     return (
         <div>
-            <h3>Menu</h3>
+            <AccordionTitle title={props.title}/>
+            <AccordionBody body={props.body} />
+        </div>
+    );
+}
+function AccordionTitle(props:AccordionTitleType) {
+    return (
+        <div>
+            <h3>{props.title}</h3>
+        </div>
+    );
+}
+function AccordionBody(props:AccordionBodyType) {
+    return (
+        <div>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                {
+                    props.body.map(t=>{
+                        return <li>{t}</li>
+                    })
+                }
             </ul>
         </div>
     );
